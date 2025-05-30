@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@300;400;600;700;800&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 210 40% 16%; /* #2D3436 charcoal */
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 40% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 40% 16%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 207 90% 54%; /* #45B7D1 sky */
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 210 40% 16%;
+  --radius: 0.5rem;
+  
+  /* Custom cartoon colors */
+  --coral: 0 69% 69%; /* #FF6B6B */
+  --mint: 177 70% 68%; /* #4ECDC4 */
+  --sky: 207 90% 54%; /* #45B7D1 */
+  --sage: 143 37% 72%; /* #96CEB4 */
+  --sunny: 47 100% 80%; /* #FFEAA7 */
+  --lavender: 300 47% 75%; /* #DDA0DD */
+  --charcoal: 210 40% 16%; /* #2D3436 */
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-gradient-to-br from-yellow-100 via-white to-teal-100 text-foreground;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-cartoon {
+    font-family: 'Fredoka One', cursive;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--coral)) 0%, hsl(var(--mint)) 50%, hsl(var(--sky)) 100%);
+  }
+
+  .cartoon-shadow {
+    box-shadow: 0 8px 32px hsla(var(--coral), 0.3);
+  }
+
+  .hover-bounce {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-bounce:hover {
+    transform: translateY(-8px) scale(1.05);
+  }
+
+  .text-coral {
+    color: hsl(var(--coral));
+  }
+
+  .text-mint {
+    color: hsl(var(--mint));
+  }
+
+  .text-sky {
+    color: hsl(var(--sky));
+  }
+
+  .text-sage {
+    color: hsl(var(--sage));
+  }
+
+  .text-sunny {
+    color: hsl(var(--sunny));
+  }
+
+  .text-lavender {
+    color: hsl(var(--lavender));
+  }
+
+  .text-charcoal {
+    color: hsl(var(--charcoal));
+  }
+
+  .bg-coral {
+    background-color: hsl(var(--coral));
+  }
+
+  .bg-mint {
+    background-color: hsl(var(--mint));
+  }
+
+  .bg-sky {
+    background-color: hsl(var(--sky));
+  }
+
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+
+  .bg-sunny {
+    background-color: hsl(var(--sunny));
+  }
+
+  .bg-lavender {
+    background-color: hsl(var(--lavender));
+  }
+
+  .bg-charcoal {
+    background-color: hsl(var(--charcoal));
+  }
+
+  .border-coral {
+    border-color: hsl(var(--coral));
+  }
+
+  .border-mint {
+    border-color: hsl(var(--mint));
+  }
+
+  .from-coral {
+    --tw-gradient-from: hsl(var(--coral));
+  }
+
+  .to-mint {
+    --tw-gradient-to: hsl(var(--mint));
+  }
+
+  .to-sky {
+    --tw-gradient-to: hsl(var(--sky));
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
